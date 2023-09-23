@@ -101,5 +101,51 @@ Date: Sept.22.23
 		This should allow users to easily recognize what is a search button or not.
 	</p>
 
+	<h1>Safety</h1>
+	<p>Website <a href="https://poki.com/en/g/temple-run-2" target="_blank">https://poki.com/en/g/temple-run-2</a></p>
+
+
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<h3>Before</h3>
+				<img src="assets/SafetyBeofre.JPG" style="height: 200px;">
+			</div>
+			<div class="col">
+				<h3>After</h3>
+				<img src="assets/SafetyAfter.JPG" style="height: 200px;">
+			</div>
+
+		</div>
+	</div>
+
+	<code>
+
+		let safety = `&lt;style&gt;<br>
+			.sc-al88rd-7 {<br>
+				display: none;<br>
+			}<br>
+			.sc-al88rd-8 {<br>
+				display: none;<br>
+			}<br>
+			.sc-al88rd-9 {<br>
+				display: none;<br>
+			}<br>
+			&lt;style&gt;<br>
+			`;<br>
+			document.body.insertAdjacentHTML("beforeend", safety);
+	</code>
+
+	<h2>Explanation</h2>
+	<p>
+		Ads always has a potential to compromising safety in privacy and the dimensions of usability.
+		Fortunatly for me, the ads have been personilized due to my recent searches. But for new users the ads could be a battlegrounds for anything malicous or explicit.
+		Especially in a website for children, where the users are more likely to click on the ads accidentally or intentionally.
+		Even for more knowledgable users, clicking on ads will prompt no confirmation, so accidentally clicking on a malicous ad is a unforgiving death sentence.<br>
+		To fix this, we will hide the ads that could pose a threat to the children or unfortunate victims who accidentally clicked them.
+		
+
+	</p>
+
 </body>
 </html> 
