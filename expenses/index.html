@@ -7,17 +7,141 @@ Date: Sept.22.23
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv='cache-control' content='no-cache'> 
+	<meta http-equiv='expires' content='0'> 
+	<meta http-equiv='pragma' content='no-cache'>
 	<title>Expenses</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div id="app">
 	<!-- Replace cmps3141-as3-css_app-23s1 below with your repo name (cmps3141-as3-css_app-23s1-yourusername) so you can save!  -->
-	<ma-data v-model="expenses" src="https://github.com/UB-CMPS3141/as3-css_app-23s1/expenses/data.json"></ma-data>
+	<ma-data v-model="expenses" src="https://github.com/UB-CMPS3141/cmps3141-as3-css-app-23s1-Jcastel2014/expenses/data.json"></ma-data>
 
 	<!-- App YOUR UI here -->
 
+	<div class="container-fluid p-0">
+
+		<div class="row border">
+
+			<div class="col">
+				<header>
+					<h1 class="title">Expense App</h1>
+				</header>
+			</div>
+
+		</div>
+
+		<div class="row border">
+			
+			<div class="col-4">
+			
+				<div class="row">
+					<div class="col controlPanel">
+
+						<h2>Add New Expense</h2>
+						<form>
+
+							<label for="date">Date</label><br>
+							<input type="date" id="date" name="date" v-model="date"><br>
+
+							<label for = "description">Description</label><br>
+							<input type="text" id="description" name="description" v-model="description"><br>
+
+							<label for="amount">Amount</label><br>
+							<input type="number" id="amount" name="amount" v-model="amount"><br>
+
+							<label for="currency">Currency</label><br>
+							<select id="currency" name="currency" v-model="currency">
+								<option value="BZD" selected>BZD</option>
+								<option value="MXN">MXN</option>
+								<option value="GTQ">GTQ</option>
+							</select><br>
+
+							<label for="paidBy">Paid by:</label><br>
+							<select id="paidBy" name="paidBy" v-model="paidBy">
+								<option value="neo">Neo</option>
+								<option value="trinity">Trinity</option>
+								<option value="joint">Joint Card</option>
+							</select><br>
+							<p>Paid By</p>
+							<div class="row">
+								<div class="col">
+									<label for="NeoPaid">Neo</label>
+								</div>
+								<div class="col">
+									<label for="TrinityPaid">Trinity</label>
+								</div>
+								<div class="col">
+									<label for="JointPaid">Joint</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col">
+									<input type="checkbox" id="NeoPaid" name="NeoPaid" value="NeoPaid" onclick="unselectJoint()" v-model="neoChecked" @click="unselectOthers">
+								</div>
+								<div class="col">
+									<input type="checkbox" id="TrinityPaid" name="TrinityPaid" value="TrinityPaid" onclick="unselectJoint()" v-model="trinityChecked" @click="unselectOthers">
+								</div>
+								<div class="col">
+									<input type="checkbox" id="JointPaid" name="JointPaid" value="JointPaid" onclick="unselectOthers(this)" v-model="jointChecked" @click="unselectJoint">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col">
+									<input type="number" id="neoAmount" name="neoAmount" v-model="neoPaid" :disabled="!neoChecked">
+								</div>
+								<div class="col">
+									<input type="number" id="trinityAmount" name="trinityAmount" v-model="trinityPaid" :disabled="!trinityChecked">
+								</div>
+								<div class="col">
+									<input type="number" id="jointAmount" name="jointAmount" v-model="jointPaid" :disabled="!jointChecked">
+								</div>
+							</div>
+
+							<label for="paidFor">For</label><br>
+							<select id="paidFor" name="paidFor" v-model="paidFor">
+								<option value="neo">Neo</option>
+								<option value="trinity">Trinity</option>
+								<option value="joint">Joint Card</option>
+							</select><br>
+
+							<div class="buttonContainer">
+								<button @click.prevent="addExpense()">Add Expense</button>
+							</div>
+
+
+						</form>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col summary">
+						<h2>Summary</h2>
+					</div>
+				</div>
+			</div>
+
+			<div class="col tableContainer border w-100">
+
+				<table class="table w-100" id="table">
+					<thead>
+						<tr id="tableBody">
+							<th>Date</th>
+							<th>Description</th>
+							<th>Amount</th>
+							<th>Currency</th>
+							<th>Paid By</th>
+							<th>For</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+
+		</div>
+	</div>
 	<!-- Delete this line when you write your actual UI -->
 	{{ expenses.length }} expenses loaded.
 </div>
