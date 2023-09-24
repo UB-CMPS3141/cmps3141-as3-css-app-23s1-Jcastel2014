@@ -283,5 +283,16 @@
     "neoPaid": 0,
     "trinityPaid": 200,
     "jointPaid": 0
+  },
+  {
+    "date": "2023-09-23",
+    "description": "Joint Testing 2",
+    "amount": 200,
+    "currency": "BZD",
+    "paidBy": "Trinity",
+    "paidFor": "neo",
+    "neoPaid": 0,
+    "trinityPaid": 200,
+    "jointPaid": 0
   }
 ]
