@@ -338,5 +338,16 @@
     "neoPaid": 57,
     "trinityPaid": 0,
     "jointPaid": 0
+  },
+  {
+    "date": "2023-03-01",
+    "description": "Joint credit card 3/1",
+    "amount": 4000,
+    "currency": "BZD",
+    "paidBy": "Neo and Trinity",
+    "paidFor": "neo",
+    "neoPaid": 2000,
+    "trinityPaid": 2000,
+    "jointPaid": 0
   }
 ]
