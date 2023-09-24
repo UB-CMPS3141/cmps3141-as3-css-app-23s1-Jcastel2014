@@ -70,11 +70,23 @@ button {
     transition: .3s;
 }
 
+thead {
+    background-color: rgb(77,202,146);
+    color: white;
+
+}
+
 button:hover {
     border: solid 1px rgb(77,202,146);
     background-color: white;
     color: rgb(77,202,146);
     transition: .3s;
+}
+
+tr:hover{
+    background-color: rgb(77,202,146);
+    color: white !important;
+    transition: .1s;
 }
 
 .buttonContainer {
@@ -111,4 +123,7 @@ button:hover {
 .tableContainer {
     background-color: rgb(245,245,245);
     margin: 1em;
+    padding: 0;
+    
 }
+

@@ -19,9 +19,15 @@ globalThis.app = createApp({
 		neoChecked: false,
         trinityChecked: false,
         jointChecked: false,
-        neoPaid: "",
-        trinityPaid: "",
-        jointPaid: "",
+        neoPaid: null,
+        trinityPaid: null,
+        jointPaid: null,
+		itemDes:null,
+		didNeo:null,
+		didTrinity:null,
+		didJoint:null,
+		neoTotal:0,
+		trinityTotal:0,
 		jsonData: [] //actual name should be for, but it will run into errors so we will use fort as a replacment
 	},
 
@@ -42,7 +48,7 @@ globalThis.app = createApp({
 				MXN: 8.73,
 				GTQ: 3.91
 			};
-
+			
 			return amount * rates[to] / rates[from];
 		},
 
@@ -51,12 +57,27 @@ globalThis.app = createApp({
 		},
 		unselectOthers() {
             this.jointChecked = false;
+			this.jointPaid=0;
+
         },
         unselectJoint(){
             
 			this.neoChecked = false;
             this.trinityChecked = false;
+			this.neoPaid	= 0;
+			this.trinityPaid	=0;
         },
+
+		showWhoPaid (itemDes, neo, trinity, joint) {
+			
+			this.itemDes=itemDes;
+
+			console.log(itemDes);
+			this.didNeo = neo;
+			this.didTrinity = trinity;
+			this.didJoint = joint;
+
+		},
 
 		addRowsToTable() {
 			let jsonData;
@@ -83,11 +104,15 @@ globalThis.app = createApp({
 						paidBy 	= "Trinity";
 						paidFor	= "Trinity";
 						cost	= item.trinity_paid
+						this.trinityTotal += cost;
+						
 					}
 					if(item.neo_paid) {
 						paidBy 	= "Neo";
 						paidFor	= "Neo";
 						cost	= item.neo_paid
+						this.neoTotal += cost;
+						
 					}
 					if(item.trinity_paid && item.neo_paid) {
 						paidBy 	= "Neo and Trinity";
@@ -123,11 +148,27 @@ globalThis.app = createApp({
 					}
 				}
 
-
+				let neoTotal = 0;
+				let trinityTotal = 0;
+				
+				if (this.currency == "BZD") {
+					neoTotal = item.neoPaid;
+					trinityTotal = item.trinityPaid;
+				} else if (this.currency == "MXN") {
+					neoTotal = this.currencyConvert("MXN", "BZD", item.neoPaid);
+					
+					trinityTotal = this.currencyConvert("MXN", "BZD", item.trinityPaid);
+				} else if (this.currency == "GTQ") {
+					neoTotal = this.currencyConvert("GTQ", "BZD", item.neoPaid);
+					trinityTotal = this.currencyConvert("GTQ", "BZD", item.trinityPaid);
+				}
+				
+				this.neoTotal += neoTotal;       // Accumulate neoTotal
+				this.trinityTotal += trinityTotal; // Accumulate trinityTotal
 				
 					var row = `
 				
-					<tr>
+					<tr title="Neo Paid: $'${item.neoPaid}', Trinity Paid: $'${item.trinityPaid}, Joint Card Paid $'${item.jointPaid}'">
 						<td>${date}</td>
 						<td>${description}</td>
 						<td>${cost}</td>
@@ -201,6 +242,31 @@ globalThis.app = createApp({
 		async addExpense() {
 
 
+			//check who paid and how much
+
+			if (this.neoChecked && this.trinityChecked) {
+				this.paidBy = "Neo and Trinity";
+				this.amount = this.neoPaid + this.trinityPaid;
+				this.jointPaid=0;
+			}
+			else if (this.neoChecked) {
+				this.paidBy = "Neo";
+				this.amount = this.neoPaid;
+				this.trinityPaid = 0;
+				this.jointPaid=0;
+			} else if (this.trinityChecked) {
+				this.paidBy = "Trinity";
+				this.amount = this.trinityPaid;
+				this.neoPaid=0;
+				this.jointPaid=0;
+			}  else if (this.jointChecked) {
+				this.paidBy = "Joint";
+				this.amount = this.jointPaid;
+				this.trinityPaid = 0;
+				this.neoPaid=0;
+				
+			}
+
 			const githubAccessToken = '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';
 
 			this.expenses.push({
@@ -210,6 +276,9 @@ globalThis.app = createApp({
 				currency: this.currency,
 				paidBy: this.paidBy,
 				paidFor: this.paidFor,
+				neoPaid: this.neoPaid,
+				trinityPaid: this.trinityPaid,
+				jointPaid: this.jointPaid
 			
 			  });
 

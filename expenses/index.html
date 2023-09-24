@@ -24,7 +24,7 @@ Date: Sept.22.23
 
 	<div class="container-fluid p-0">
 
-		<div class="row border">
+		<div class="row">
 
 			<div class="col">
 				<header>
@@ -34,7 +34,7 @@ Date: Sept.22.23
 
 		</div>
 
-		<div class="row border">
+		<div class="row">
 			
 			<div class="col-4">
 			
@@ -50,9 +50,6 @@ Date: Sept.22.23
 							<label for = "description">Description</label><br>
 							<input type="text" id="description" name="description" v-model="description"><br>
 
-							<label for="amount">Amount</label><br>
-							<input type="number" id="amount" name="amount" v-model="amount"><br>
-
 							<label for="currency">Currency</label><br>
 							<select id="currency" name="currency" v-model="currency">
 								<option value="BZD" selected>BZD</option>
@@ -60,12 +57,6 @@ Date: Sept.22.23
 								<option value="GTQ">GTQ</option>
 							</select><br>
 
-							<label for="paidBy">Paid by:</label><br>
-							<select id="paidBy" name="paidBy" v-model="paidBy">
-								<option value="neo">Neo</option>
-								<option value="trinity">Trinity</option>
-								<option value="joint">Joint Card</option>
-							</select><br>
 							<p>Paid By</p>
 							<div class="row">
 								<div class="col">
@@ -80,13 +71,13 @@ Date: Sept.22.23
 							</div>
 							<div class="row">
 								<div class="col">
-									<input type="checkbox" id="NeoPaid" name="NeoPaid" value="NeoPaid" onclick="unselectJoint()" v-model="neoChecked" @click="unselectOthers">
+									<input type="checkbox" id="NeoPaid" name="NeoPaid" value="NeoPaid"  v-model="neoChecked" @click="unselectOthers">
 								</div>
 								<div class="col">
-									<input type="checkbox" id="TrinityPaid" name="TrinityPaid" value="TrinityPaid" onclick="unselectJoint()" v-model="trinityChecked" @click="unselectOthers">
+									<input type="checkbox" id="TrinityPaid" name="TrinityPaid" value="TrinityPaid"  v-model="trinityChecked" @click="unselectOthers">
 								</div>
 								<div class="col">
-									<input type="checkbox" id="JointPaid" name="JointPaid" value="JointPaid" onclick="unselectOthers(this)" v-model="jointChecked" @click="unselectJoint">
+									<input type="checkbox" id="JointPaid" name="JointPaid" value="JointPaid" v-model="jointChecked" @click="unselectJoint">
 								</div>
 							</div>
 							<div class="row">
@@ -119,13 +110,15 @@ Date: Sept.22.23
 				<div class="row">
 					<div class="col summary">
 						<h2>Summary</h2>
+						<p>Trinity Paid: {{ trinityTotal }}<br>
+							Neo Paid: {{ neoTotal }}</p>
 					</div>
 				</div>
 			</div>
 
-			<div class="col tableContainer border w-100">
+			<div class="col tableContainer w-100">
 
-				<table class="table w-100" id="table">
+				<table class="table w-100 table-striped" id="table">
 					<thead>
 						<tr id="tableBody">
 							<th>Date</th>
