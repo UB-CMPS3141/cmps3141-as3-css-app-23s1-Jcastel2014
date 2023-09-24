@@ -316,5 +316,16 @@
     "neoPaid": 400,
     "trinityPaid": 400,
     "jointPaid": 0
+  },
+  {
+    "date": "2023-09-23",
+    "description": "Neo blue pills (3 bottles)",
+    "amount": 305,
+    "currency": "BZD",
+    "paidBy": "Trinity",
+    "paidFor": "trinity",
+    "neoPaid": 0,
+    "trinityPaid": 305,
+    "jointPaid": 0
   }
 ]
