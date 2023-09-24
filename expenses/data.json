@@ -327,5 +327,16 @@
     "neoPaid": 0,
     "trinityPaid": 305,
     "jointPaid": 0
+  },
+  {
+    "date": "2023-09-23",
+    "description": "Laser",
+    "amount": 57,
+    "currency": "BZD",
+    "paidBy": "Neo",
+    "paidFor": "neo",
+    "neoPaid": 57,
+    "trinityPaid": 0,
+    "jointPaid": 0
   }
 ]
