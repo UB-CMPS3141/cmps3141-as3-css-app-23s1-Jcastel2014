@@ -349,5 +349,16 @@
     "neoPaid": 2000,
     "trinityPaid": 2000,
     "jointPaid": 0
+  },
+  {
+    "date": "2022-09-12",
+    "description": "Joint credit card 9/12/22",
+    "amount": 4566,
+    "currency": "BZD",
+    "paidBy": "Neo and Trinity",
+    "paidFor": "joint",
+    "neoPaid": 1000,
+    "trinityPaid": 3566,
+    "jointPaid": 0
   }
 ]
