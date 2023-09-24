@@ -237,5 +237,13 @@
     "currency": "BZD",
     "paidBy": "joint",
     "paidFor": "neo"
+  },
+  {
+    "date": "2023-09-23",
+    "description": "Shampoo",
+    "amount": 50,
+    "currency": "MXN",
+    "paidBy": "trinity",
+    "paidFor": "neo"
   }
 ]
