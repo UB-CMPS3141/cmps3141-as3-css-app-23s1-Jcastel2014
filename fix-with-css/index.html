@@ -7,10 +7,145 @@ Date: Sept.22.23
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Fix the Web with CSS!</title>
 </head>
 <body>
 
+	<h1>
+		Learnability
+	</h1>
+	<p>Website <a href="https://www.livedigi.com/?gclid=Cj0KCQjw06-oBhC6ARIsAGuzdw0YtnzKDWwx5gboIdbvHBCq_Ql1oXO53kswb5BBq4MKvb3qDsFzjrsaAlW8EALw_wcB" target="_blank">https://www.livedigi.com/?gclid=Cj0KCQjw06-oBhC6ARIsAGuzdw0YtnzKDWwx5gboIdbvHBCq_Ql1oXO53kswb5BBq4MKvb3qDsFzjrsaAlW8EALw_wcB</a></p>
+
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<h3>Before</h3>
+				<img src="assets/Learnability.JPG" style="height: 200px;">
+			</div>
+			<div class="col">
+				<h3>After</h3>
+				<img src="assets/LearnabilityAfter.JPG" style="height: 200px;">
+			</div>
+
+		</div>
+	</div>
+<h2>Code</h2>
+	<code>
+		let learnability = `&lt;style&gt;<br>
+			.unslider-arrow {<br>
+					border-radius: 50%;<br>
+					background-color: black;<br>
+				}<br>
+				&lt;/style&gt;<br>
+			`;<br>
+			document.body.insertAdjacentHTML("beforeend", learnability);
+	</code>
+	<h2>Explanation</h2>
+	<p>
+		When you first the <a href="https://www.livedigi.com/?gclid=Cj0KCQjw06-oBhC6ARIsAGuzdw0YtnzKDWwx5gboIdbvHBCq_Ql1oXO53kswb5BBq4MKvb3qDsFzjrsaAlW8EALw_wcB" target="_blank">livedigi.com</a>
+		website you will first see an image link as their banner. This image link is actually a carasol of images with arrows which are realativly hard to see.
+		This affects the learnability of the website, because due to the arrows being hard to see the users wont even realize that there are more images in the carasol.
+		Although it may not seem like a big issue, some of the links in the different images of the carasol lead to different places.<br>
+		In order to fix this problem we will add more simple css to highlight the arrows to let the users know that there are arrows there which means that there are more images awaiting to be discovered.
+	</p>
+
+
+	<h1>
+		Efficiency
+	</h1>
+	<p>Website <a href="https://edition.channel5belize.com/" target="_blank">https://edition.channel5belize.com/</a></p>
+
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<h3>Before</h3>
+				<img src="assets/Efficiency Before.JPG" style="height: 175px;">
+			</div>
+			<div class="col">
+				<h3>After</h3>
+				<img src="assets/EfficiencyAfter.JPG" style="height: 200px;">
+			</div>
+
+		</div>
+	</div>
+<h2>Code</h2>
+	<code>
+
+		let efficiency = `&lt;style&gt; <br>
+			form {<br>
+				background-color: grey;<br>
+				position: absolute;<br>
+				position: sticky;<br>
+			}<br>
+	
+			input.searchsubmit {<br>
+				
+			}<br>
+			input.searchsubmit:hover {<br>
+				box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;<br>
+			}<br>
+	
+			&lt;style&gt;<br>
+		`;<br>
+	
+		document.body.insertAdjacentHTML("beforeend", efficiency);
+
+	</code>
+	<h2>Explanation</h2>
+	<p>
+		The Channel 5 Belize Website appears to have a problem with efficiency. At the top right of the webpage there is a search button, but due to the image 
+		the search button is surrounded by a grey box, this makes it seems like its a button which users could accidentaly click. This error also happened to me when browsing.<br>
+		To fix this issue we surround the form in with a background color to hide the grey box on the image, then added a hover effect around the actual search button.
+		This should allow users to easily recognize what is a search button or not.
+	</p>
+
+	<h1>Safety</h1>
+	<p>Website <a href="https://poki.com/en/g/temple-run-2" target="_blank">https://poki.com/en/g/temple-run-2</a></p>
+
+
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<h3>Before</h3>
+				<img src="assets/SafetyBeofre.JPG" style="height: 200px;">
+			</div>
+			<div class="col">
+				<h3>After</h3>
+				<img src="assets/SafetyAfter.JPG" style="height: 200px;">
+			</div>
+
+		</div>
+	</div>
+
+	<code>
+
+		let safety = `&lt;style&gt;<br>
+			.sc-al88rd-7 {<br>
+				display: none;<br>
+			}<br>
+			.sc-al88rd-8 {<br>
+				display: none;<br>
+			}<br>
+			.sc-al88rd-9 {<br>
+				display: none;<br>
+			}<br>
+			&lt;style&gt;<br>
+			`;<br>
+			document.body.insertAdjacentHTML("beforeend", safety);
+	</code>
+
+	<h2>Explanation</h2>
+	<p>
+		Ads always has a potential to compromising safety in privacy and the dimensions of usability.
+		Fortunatly for me, the ads have been personilized due to my recent searches. But for new users the ads could be a battlegrounds for anything malicous or explicit.
+		Especially in a website for children, where the users are more likely to click on the ads accidentally or intentionally.
+		Even for more knowledgable users, clicking on ads will prompt no confirmation, so accidentally clicking on a malicous ad is a unforgiving death sentence.<br>
+		To fix this, we will hide the ads that could pose a threat to the children or unfortunate victims who accidentally clicked them.
+		
+
+	</p>
+
 </body>
-</html>
+</html> 

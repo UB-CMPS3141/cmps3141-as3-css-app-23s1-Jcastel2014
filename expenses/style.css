@@ -3,3 +3,127 @@ CMPS3141-HCI - AS3-23S1
 Collaborators:
 Date: Sept.22.23
 */
+
+body {
+    background-image: url("assets/6ccc.jpg");
+    font-family: Verdana, sans-serif;
+}
+th {
+    text-align:center;
+}
+
+td{
+    text-align: center;
+}
+
+input {
+    border: none;
+    background-color: rgb(232,232,232);
+    padding: .75em;
+    width: 100%;
+    border-bottom: solid 2px rgb(162,162,162);
+  
+}
+
+input:focus {
+    
+    outline: none;
+    border-bottom: solid 2px rgb(77,202,146);
+    transition: .3s;
+}
+
+select {
+    border: none;
+    background-color: rgb(232,232,232);
+    padding: .75em;
+    width: 100%;
+    border-bottom: solid 2px rgb(162,162,162);
+}
+
+select:focus {
+    outline: none;
+    border-bottom: solid 2px rgb(77,202,146);
+    transition: .3s;
+}
+
+option:hover {
+    background-color: rgb(77,202,146);
+}
+
+header h1 {
+    color:rgb(245,255,253);
+    text-align: center;
+    padding: 2em;
+}
+
+
+
+button {
+    color:white;
+    background-color: rgb(77,202,146);
+    border:none;
+    margin: 1em;
+    padding: .5em;
+    border-radius: 10%;
+    justify-content: center;
+    font-size: 25px;
+    transition: .3s;
+}
+
+thead {
+    background-color: rgb(77,202,146);
+    color: white;
+
+}
+
+button:hover {
+    border: solid 1px rgb(77,202,146);
+    background-color: white;
+    color: rgb(77,202,146);
+    transition: .3s;
+}
+
+tr:hover{
+    background-color: rgb(77,202,146);
+    color: white !important;
+    transition: .1s;
+}
+
+.buttonContainer {
+    text-align: center;
+}
+.controlPanel {
+    background-color: rgb(245,245,245);
+    margin: 1em;
+    margin-bottom: 0;
+    border-top-left-radius: 4%;
+    border-top-right-radius: 4%;
+    
+}
+
+.summary {
+    background-color: rgb(245,245,245);
+    margin: 1em;
+    margin-top: 0;
+    border-bottom-left-radius: 4%;
+    border-bottom-right-radius: 4%;
+}
+
+.summary h2{
+    text-align: center;
+    padding-top: 1em;
+}
+
+.controlPanel h2 {
+  text-align: center;
+  padding-top: 1em;
+
+}
+
+.tableContainer {
+    background-color: rgb(245,245,245);
+    margin: 1em;
+    padding: 0;
+    
+}
+
